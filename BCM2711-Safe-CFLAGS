@@ -1,0 +1,34 @@
+BCM2709-Safe-CFLAGS-AArch64
+
+/etc/portage/make.conf
+COMMON_FLAGS="-march=armv8-a+crc -mtune=cortex-a53 -O2 -pipe"
+CFLAGS="${COMMON_FLAGS}"
+CXXFLAGS="${COMMON_FLAGS}"
+
+#####
+CPU information for popular ARM-based boards
+Board:Raspberry Pi 4
+CPU:Broadcom BCM2711
+Architecture:ARMv8-A
+ARM Core:Cortex-A72
+FPU:VFPv4 (VFP and NEON)
+
+GCC compiler options for popular ARM-based boards
+Board:Raspberry Pi 4
+GCC optimisation flags:-mcpu=cortex-a72 -mfloat-abi=hard -mfpu=neon-fp-armv8 -mneon-for-64bits
+
+GCC compiler tuning options for popular ARM-based boards
+Board:Raspberry Pi 4
+GCC extra tuning flags:-mtune=cortex-a72
+
+#####
+gcc -v -E -x c /dev/null -o /dev/null -march=native 2>&1 | grep /cc1
+/usr/libexec/gcc/aarch64-unknown-linux-gnu/13/cc1 -E -quiet -v /dev/null -o /dev/null -mlittle-endian -mabi=lp64 -mcpu=cortex-a72+crc -dumpbase null
+
+#####
+BCM2711-Safe-CFLAGS-AArch64
+
+/etc/portage/make.conf
+COMMON_FLAGS="-march=armv8-a+crc -mtune=cortex-a72 -O2 -pipe"
+CFLAGS="${COMMON_FLAGS}"
+CXXFLAGS="${COMMON_FLAGS}"
