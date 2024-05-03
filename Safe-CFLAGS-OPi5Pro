@@ -1,0 +1,19 @@
+rk3588s-orangepi-5-pro
+Rockchip RK3588S
+8-core 64-bit processor
+big.LITTLE Architecture: 4-core Cortex-A76 and 4-core Cortex-A55
+big core cluster is 2.4GHz frequency
+little core cluster is 1.8GHz frequency
+
+#####
+
+COMMON_FLAGS="-mcpu=cortex-a76.cortex-a55+crc+crypto -O2 -pipe"
+CFLAGS="${COMMON_FLAGS}"
+CXXFLAGS="${COMMON_FLAGS}"
+FCFLAGS="${COMMON_FLAGS}"
+FFLAGS="${COMMON_FLAGS}"
+
+#####
+
+gcc -v -E -x c /dev/null -o /dev/null -march=native 2>&1 | grep /cc1
+/usr/libexec/gcc/aarch64-unknown-linux-gnu/13/cc1 -E -quiet -v /dev/null -o /dev/null -mlittle-endian -mabi=lp64 -mcpu=cortex-a76.cortex-a55+crc+crypto -dumpbase null
