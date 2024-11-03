@@ -1,0 +1,16 @@
+#Glances Web UI shows a blank page debian bookworm
+
+glances -V
+Glances v3.3.1.1 with PsUtil v5.9.4
+Log file: /home/owen/.local/share/glances/glances.log
+
+export GLANCES_VERSION="3.3.1.1"
+
+wget https://github.com/nicolargo/glances/archive/refs/tags/v${GLANCES_VERSION}.tar.gz
+
+tar -xvf v${GLANCES_VERSION}.tar.gz
+
+sudo cp -r -v sudo cp -r glances-${GLANCES_VERSION}/glances/outputs/static/public/ /usr/lib/python3/dist-packages/glances/outputs/static/
+
+glaces -w
+
