@@ -10,7 +10,7 @@ wget https://github.com/nicolargo/glances/archive/refs/tags/v${GLANCES_VERSION}.
 
 tar -xvf v${GLANCES_VERSION}.tar.gz
 
-sudo cp -r -v sudo cp -r glances-${GLANCES_VERSION}/glances/outputs/static/public/ /usr/lib/python3/dist-packages/glances/outputs/static/
+sudo cp -r -v glances-${GLANCES_VERSION}/glances/outputs/static/public/ /usr/lib/python3/dist-packages/glances/outputs/static/
 
 glaces -w
 
