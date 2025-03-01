@@ -14,3 +14,26 @@ sudo cp -r -v glances-${GLANCES_VERSION}/glances/outputs/static/public/ /usr/lib
 
 glaces -w
 
+#####
+
+systemctl stop glances.service
+
+glances -V
+
+export GLANCES_VERSION=$(glances -V | head -n 1 | awk '{print $2}' | sed 's/^v//')
+
+cd /tmp/
+
+wget "https://github.com/nicolargo/glances/archive/refs/tags/v${GLANCES_VERSION}.tar.gz"
+
+tar -xvf v${GLANCES_VERSION}.tar.gz
+
+cp -rv glances-${GLANCES_VERSION}/glances/outputs/static/public/ /usr/lib/python3/dist-packages/glances/outputs/static/
+
+sed -i '/ExecStart=\/usr\/bin\/glances -s -B 127.0.0.1/c\ExecStart=\/usr\/bin\/glances -w -B 0.0.0.0 -t 10 -p 61208' /usr/lib/systemd/system/glances.service
+
+# sed -i '/ExecStart=\/usr\/bin\/glances -s -B 127.0.0.1/c\ExecStart=\/usr\/bin\/glances -w -B 0.0.0.0 -t 10 -p 61208' /etc/systemd/system/glances.service #gentoo
+
+systemctl daemon-reload
+
+systemctl start glances.service
