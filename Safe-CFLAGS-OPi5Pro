@@ -17,3 +17,7 @@ FFLAGS="${COMMON_FLAGS}"
 
 gcc -v -E -x c /dev/null -o /dev/null -march=native 2>&1 | grep /cc1
 /usr/libexec/gcc/aarch64-unknown-linux-gnu/13/cc1 -E -quiet -v /dev/null -o /dev/null -mlittle-endian -mabi=lp64 -mcpu=cortex-a76.cortex-a55+crc+crypto -dumpbase null
+
+#####
+resolve-march-native
+-mcpu=cortex-a76.cortex-a55+crc+crypto
