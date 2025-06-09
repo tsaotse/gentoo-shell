@@ -1,3 +1,6 @@
+##### crontab 
+##### /usr/local/bin/snapraid.daily.sh >> /var/log/snapraid.log 2>&1
+#####
 export LANG=C
 /usr/bin/echo '#####'
 /usr/bin/date
